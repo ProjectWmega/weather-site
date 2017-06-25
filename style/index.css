@@ -83,12 +83,11 @@ html {
 
 .warning-items {
   display: flex;
-  justify-content: space-around;
-  width: 16em; /* need setting */
 }
 
 .warning-item {
   padding: 0.1em 0.8em 0 0.8em;
+  margin: 0 0.25em;
   border: 0.8px solid;
   border-color: gray;
   border-radius: 3px;
@@ -105,7 +104,6 @@ html {
 .observe-items {
   display: flex;
   justify-content: space-around;
-  width: 29em; /* need setting */
 }
 
 .observe-temp {
@@ -154,7 +152,6 @@ span {
 .air-items {
   display: flex;
   justify-content: space-around;
-  width: 30em; /* need setting */
 }
 
 
