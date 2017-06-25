@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Weather</title>
+
+  <script src="https://unpkg.com/vue@2.3.4/dist/vue.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css">
+
+  <script src="js/index.js"></script>
+  <link rel="stylesheet" href="style/index.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-left">
+      <a class="nav-item">
+        <img src="http://bulma.io/images/placeholders/256x256.png" height="200px" width="300px" alt="">
+      </a>
+    </div>
+
+    <div class="nav-center">
+      <a class="nav-item">
+        <span class="icon">
+          <i class="fa fa-facebook-official"></i>
+        </span>
+      </a>
+      <a class="nav-item">
+        <span class="icon">
+          <i class="fa fa-apple"></i>
+        </span>
+      </a>
+      <a class="nav-item">
+        <span class="icon">
+          <i class="fa fa-android"></i>
+        </span>
+      </a>
+    </div>
+
+    <!-- This "nav-toggle" hamburger menu is only visible on mobile -->
+    <!-- You need JavaScript to toggle the "is-active" class on "nav-menu" -->
+    <span class="nav-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+
+    <div class="nav-right nav-menu">
+      <a class="nav-item nav-item-selected">
+        首頁
+      </a>
+      <a class="nav-item">
+        預報
+      </a>
+      <a class="nav-item">
+        觀測
+      </a>
+      <a class="nav-item">
+        天氣
+      </a>
+      <a class="nav-item">
+        天文
+      </a>
+      <a class="nav-item">
+        新聞專區
+      </a>
+      <a class="nav-item">
+        科普園地
+      </a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="columns">
+      <!-- Information -->
+      <div class="column is-5">
+        <!-- 您的地點 -->
+        <h5 class="title is-5" id="search-text">您的地點</h5>
+          <div class="field has-addons">
+            <a class="button is-primary is-small">
+              <span class="icon">
+                <i class="fa fa-search"></i>
+              </span>
+            </a>
+          <p class="control">
+            <input class="input is-small location-search" type="text" placeholder="台中市, 西屯區">
+          </p>
+        </div>
+
+        <!-- 時間 -->
+        <p class="time">2017年3月19日</p>
+
+        <!-- 目前警特報、即時天氣訊息 -->
+        <div class="item">
+          <h4 class="title is-4">目前警特報、即時天氣訊息</h4>
+          <div class="warning-items">
+            <div class="warning-item">
+              <center>
+                <figure class="image is-48x48">
+                  <img src="http://bulma.io/images/placeholders/64x64.png">
+                </figure>
+              </center>
+              <p class="warning-text">大雨特報</p>
+            </div>
+            <div class="warning-item">
+              <center>
+                <figure class="image is-48x48">
+                  <img src="http://bulma.io/images/placeholders/64x64.png">
+                </figure>
+              </center>
+              <p class="warning-text">強風特報</p>
+            </div>
+
+            <div class="warning-item">
+              <center>
+                <figure class="image is-48x48">
+                  <img src="http://bulma.io/images/placeholders/64x64.png">
+                </figure>
+              </center>
+              <p class="warning-text">低溫特報</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 氣象觀測 -->
+        <div class="item">
+          <h4 class="title is-4">氣象觀測 (XX:XX)</h4>
+          <div class="columns observe-items">
+            <div class="column is-4">
+              <div class="observe-temp">
+                <p class="main-temp">17.5°C</p>
+                <p class="body-temp">體感溫度15°C</p>
+              </div>
+            </div>
+
+            <div class="column is-4" style="padding-left: 0px;padding-right: 0px;">
+              <div class="observe-info">
+                <div class="observe-wind">
+                  <figure class="image is-48x48">
+                    <img src="http://bulma.io/images/placeholders/48x48.png">
+                  </figure>
+                  <p class="wind-text">北北東<br>NNE</p>
+                </div>
+                <p class="wind-text">風力：5.4m/s(3級)<br>陣風：5.4m/s(3級)</p>
+              </div>
+            </div>
+
+            <div class="column" style="padding-left: 0px;padding-right: 0px;">
+              <div class="observe-info">
+                <p>
+                  <span class="icon"><i class="fa fa-sun-o"></i></span>
+                  80%
+                </p>
+                <p>
+                  <span class="icon"><i class="fa fa-sun-o"></i></span>
+                  700毫米
+                </p>
+                <p>
+                  <span class="icon"><i class="fa fa-sun-o"></i></span>
+                  低量級
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 空氣品質 -->
+        <div class="item">
+          <h4 class="title is-4">空氣品質 (XX:XX)</h4>
+          <div class="columns air-items">
+            <div class="column is-one-quarter">
+              <div class="aqi-box">
+                <p class="aqi-text">AQI</p>
+                <p class="aqi-value">30</p>
+                <p class="aqi-quality">良好</p>
+              </div>
+            </div>
+
+            <div class="column pollution-view">
+              <div class="pollutions-list">
+                <p>PM 2.5</p>
+                <svg height="30" width="100">
+                  <rect width="25" height="25" rx="4" ry="4" style="fill:#a7c113;stroke-width:3" />
+                  <svg height="20" width="20">
+                    <text x="3" y="18" fill="white">24</text>
+                  </svg>
+                  <line x1="25" y1="12" x2="130" y2="12" style="stroke:#ccc;stroke-width:5" />
+                  <line x1="22" y1="12" x2="40" y2="12" style="stroke:#a7c113;stroke-width:5" />
+                </svg>
+                <p>PM 10</p>
+                <svg height="30" width="100">
+                  <rect width="25" height="25" rx="4" ry="4" style="fill:#a7c113;stroke-width:3" />
+                  <svg height="20" width="20">
+                    <text x="3" y="18" fill="white">24</text>
+                  </svg>
+                  <line x1="25" y1="12" x2="130" y2="12" style="stroke:#ccc;stroke-width:5" />
+                  <line x1="22" y1="12" x2="40" y2="12" style="stroke:#a7c113;stroke-width:5" />
+                </svg>
+              </div>
+            </div>
+            <div class="column pollution-view">
+              <div class="pollutions-list">
+                <p>O3</p>
+                <svg height="30" width="100">
+                  <rect width="25" height="25" rx="4" ry="4" style="fill:#a7c113;stroke-width:3" />
+                  <svg height="20" width="20">
+                    <text x="3" y="18" fill="white">24</text>
+                  </svg>
+                  <line x1="25" y1="12" x2="130" y2="12" style="stroke:#ccc;stroke-width:5" />
+                  <line x1="22" y1="12" x2="40" y2="12" style="stroke:#a7c113;stroke-width:5" />
+                </svg>
+                <p>SO2</p>
+                <svg height="30" width="100">
+                  <rect width="25" height="25" rx="4" ry="4" style="fill:#a7c113;stroke-width:3" />
+                  <svg height="20" width="20">
+                    <text x="3" y="18" fill="white">24</text>
+                  </svg>
+                  <line x1="25" y1="12" x2="130" y2="12" style="stroke:#ccc;stroke-width:5" />
+                  <line x1="22" y1="12" x2="40" y2="12" style="stroke:#a7c113;stroke-width:5" />
+                </svg>
+              </div>
+            </div>
+            <div class="column pollution-view">
+              <div class="pollutions-list">
+                <p>CO</p>
+                <svg height="30" width="100">
+                  <rect width="25" height="25" rx="4" ry="4" style="fill:#a7c113;stroke-width:3" />
+                  <svg height="20" width="20">
+                    <text x="3" y="18" fill="white">24</text>
+                  </svg>
+                  <line x1="25" y1="12" x2="130" y2="12" style="stroke:#ccc;stroke-width:5" />
+                  <line x1="22" y1="12" x2="40" y2="12" style="stroke:#a7c113;stroke-width:5" />
+                </svg>
+                <p>NO2</p>
+                <svg height="30" width="100">
+                  <rect width="25" height="25" rx="4" ry="4" style="fill:#a7c113;stroke-width:3" />
+                  <svg height="20" width="20">
+                    <text x="3" y="18" fill="white">24</text>
+                  </svg>
+                  <line x1="25" y1="12" x2="130" y2="12" style="stroke:#ccc;stroke-width:5" />
+                  <line x1="22" y1="12" x2="40" y2="12" style="stroke:#a7c113;stroke-width:5" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- News -->
+      <div class="column news">
+        <div class="columns">
+          <div class="column news-fig">
+            <figure class="image is-1x1">
+              <img src="http://bulma.io/images/placeholders/256x256.png">
+            </figure>
+          </div>
+
+          <div class="column news-text">
+            <p class="news-time">
+              2017年3月19日 (日) 00:15發佈
+            </p>
+
+            <p class="news-title">
+              中國境外污染源持續移入
+            </p>
+
+            <p class="news-content">
+              動在快而權下動只集、甚連被們發照漸為這好化國，裡度衣紅。決證力建爭獨下爸，心受構草學而樣馬可團技長此……倒臺事熱狀？法人球濟了輪雨痛來我於不展去寫維海國說器們們外微少父企一？
+              道這和，山何家主不此時也媽人住，來下跟人維生國：照了會系爸、什月化手行是，雲關是個金是。邊她鄉變、影謝接沒運西！
+            </p>
+
+            <a href="" type="button" class="news-readmore">閱讀更多</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
