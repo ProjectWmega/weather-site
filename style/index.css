@@ -12,16 +12,16 @@ html {
 /* atom */
 
 * {
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
 .item {
-  padding-left: 0.8em;
   margin-bottom: 1.5em;
-  border-left: 1px solid;
+  padding-left: 0.8em;
   border-color: gray;
+  border-left: 1px solid;
 }
 
 /* Nav */
@@ -31,8 +31,8 @@ html {
 }
 
 .nav-item a, a.nav-item {
-  color: white;
   padding-top: 10px;
+  color: white;
 }
 
 .nav-item a:hover, a.nav-item:hover {
@@ -41,10 +41,10 @@ html {
 
 .nav-item-selected, a.nav-item-selected {
   padding-top: 5px;
-  color:#2ab1cc;
+  border-color: #2ab1cc;
   border-top: 5px solid;
   border-radius: 1px;
-  border-color: #2ab1cc;
+  color:#2ab1cc;
 }
 
 /* Location */
@@ -54,10 +54,10 @@ html {
 }
 
 .input {
+  border: transparent;
   background-color: black; 
   color: white;
   font-size: 1.3em; 
-  border: transparent;
 }
 
 .button.is-primary {
@@ -75,8 +75,8 @@ html {
 /* Time */
 
 .time {
-  font-size: 2em;
   margin-bottom: 0.5em;
+  font-size: 2em;
 }
 
 /* Warning */
@@ -86,8 +86,8 @@ html {
 }
 
 .warning-item {
-  padding: 0.1em 0.8em 0 0.8em;
   margin: 0 0.25em;
+  padding: 0.1em 0.8em 0 0.8em;
   border: 0.8px solid;
   border-color: gray;
   border-radius: 3px;
@@ -95,23 +95,26 @@ html {
 
 .warning-text {
   display: flex;
-  justify-content: center;
   font-size: 0.8em;
+
+  justify-content: center;
 }
 
 /* Observe */
 
 .observe-items {
   display: flex;
+
   justify-content: space-around;
 }
 
 .observe-temp {
   display: flex;
   flex-direction: column;
+  height: 4em;
+
   justify-content: center;
   align-items: center;
-  height: 4em;
 }
 
 .main-temp {
@@ -120,18 +123,18 @@ html {
 
 .body-temp {
   padding: 0 1.1em;
-  font-size: 0.8em;
   border: 1px solid;
   border-color: gray;
   border-radius: 3px;
+  font-size: 0.8em;
 }
 
 .observe-info {
   display: flex;
   flex-direction: column;
   padding-left: 0.8em;
-  border-left: 1px solid;
   border-color: gray;
+  border-left: 1px solid;
 }
 
 .observe-wind {
@@ -139,8 +142,8 @@ html {
 }
 
 .wind-text {
-  font-size: 0.8em;
   margin-left: 0.5em;
+  font-size: 0.8em;
 }
 
 span {
@@ -151,21 +154,23 @@ span {
 
 .air-items {
   display: flex;
+
   justify-content: space-around;
 }
 
 
 .aqi-box {
+  display: flex;
+  flex-direction: column;
   margin: 6px;
   width: 6em;
   height: auto;
-  display: flex;
-  text-align: center;
-  justify-content: space-around;
-  flex-direction: column;
   border: 1px solid;
   border-color: gray;
   border-radius: 2px;
+  text-align: center;
+
+  justify-content: space-around;
 }
 
 .aqi-text {
@@ -180,13 +185,14 @@ span {
 }
 
 .aqi-quality {
-  color: white;
   background-color: #a7c113;
+  color: white;
 }
 
 .pollutions-list {
   display: flex;
   flex-direction: column;
+
   justify-content: space-around;
 }
 
@@ -196,22 +202,24 @@ span {
 }
 
 .pollution-view {
+  margin: auto 0.2rem;
   padding-top: 5px;
   padding-left: 0;
-  margin: auto 0.2rem;
 }
 
 /* News */
 
 .news {
   display: flex;
-  align-items: center;
   /*padding-left: 0;*/
   padding-right: 0;
+
+  align-items: center;
 }
 
 .news-fig {
   display: flex;
+
   align-items: center;
   justify-content: center;
 }
@@ -225,9 +233,9 @@ span {
 }
 
 .news-title {
+  margin-top: 1em;
   font-weight: 900;
   font-size: 1.6em;  
-  margin-top: 1em;
 }
 
 .news-content {
@@ -237,7 +245,7 @@ span {
 
 .news-readmore {
   float: right;
-  color: black;
-  background-color: #ccc;
   width: 80px;
+  background-color: #ccc;
+  color: black;
 }
