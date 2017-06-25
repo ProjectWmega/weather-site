@@ -1,15 +1,13 @@
-/* eslint-disable no-new */
 Vue.prototype.$http = axios
 
 const SERVER_ADDRESS = 'http://140.134.26.64:1234/wmega/webapi/'
 
-var weather = new Vue({
-  el: '#weather',
+var app = new Vue({
+  el: '#app',
   data: {
     WEATHER_NOW_ADDRESS: SERVER_ADDRESS + 'weather/now/',
     AQI_NOW_ADDRESS: SERVER_ADDRESS + 'air/aqi/',
     localCoords: '24.178863/120.646648',
-    wjson: '',
     weatherNow: {
       'h_24r': 0,
       'humd': 0,
@@ -29,6 +27,33 @@ var weather = new Vue({
       'so2': 0
     }
   },
+  computed: {
+    wdirEng: function () {
+      const oriWdirText = this.weatherNow['wdir']
+      var wdirTextEng = ''
+      for (let index in oriWdirText) {
+        switch (oriWdirText[index]) {
+          case '東':
+            wdirTextEng = wdirTextEng.concat('E')
+            break
+          case '南':
+            wdirTextEng = wdirTextEng.concat('S')
+            break
+          case '西':
+            wdirTextEng = wdirTextEng.concat('W')
+            break
+          case '北':
+            wdirTextEng = wdirTextEng.concat('N')
+            break
+        }
+      }
+      if (wdirTextEng.length === 2) {
+        return wdirTextEng.split('').reverse().join('')
+      } else {
+        return wdirTextEng
+      }
+    }
+  },
   methods: {
     dateToday: function () {
       let dateToday = new Date()
@@ -44,19 +69,20 @@ var weather = new Vue({
     }
   },
   created () {
+    const vm = this
     this.$http.all([
       this.$http.get(this.WEATHER_NOW_ADDRESS + this.localCoords),
       this.$http.get(this.AQI_NOW_ADDRESS + this.localCoords)
     ])
       .then(this.$http.spread(function (weatherNowJson, aqiNowJson) {
         // Weather JSON Process
-        for (let key in weather.$data.weatherNow) {
-          weather.$data.weatherNow[key] = weatherNowJson.data[key]
+        for (let key in vm.weatherNow) {
+          vm.weatherNow[key] = weatherNowJson.data[key]
         }
 
         // AQI JSON Processs
-        for (let key in weather.$data.aqiNow) {
-          weather.$data.aqiNow[key] = aqiNowJson.data['values'][key]
+        for (let key in vm.aqiNow) {
+          vm.aqiNow[key] = aqiNowJson.data['values'][key]
         }
       }))
       .catch(function (error) {
