@@ -9,9 +9,10 @@ var app = new Vue({
     AQI_NOW_ADDRESS: SERVER_ADDRESS + 'air/aqi/',
     localCoords: '24.178863/120.646648',
     weatherNow: {
+      'time': '',
+      'temp': 0,
       'h_24r': 0,
       'humd': 0,
-      'temp': 0,
       'wdir': '',
       'wdsd': 0
     },
@@ -52,6 +53,14 @@ var app = new Vue({
       } else {
         return wdirTextEng
       }
+    },
+    weatherNowTimeText: function () {
+      let releaseDate = new Date(this.weatherNow.time)
+
+      let formatedHour = this.fillTimeText(releaseDate.getHours())
+      let formatMinuts = this.fillTimeText(releaseDate.getMinutes())
+
+      return formatedHour + ':' + formatMinuts
     }
   },
   methods: {
@@ -66,6 +75,9 @@ var app = new Vue({
              dateToday.getMonth() + '月' +
              dateToday.getDate() + '日' +
              '(' + weekdayText[dateToday.getDay()] + ')'
+    },
+    fillTimeText: function (time) {
+      return String(time).length === 1 ? '0' + time : String(time)
     }
   },
   created () {
