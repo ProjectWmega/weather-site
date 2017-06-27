@@ -9,7 +9,7 @@ var app = new Vue({
     AQI_NOW_ADDRESS: SERVER_ADDRESS + 'air/aqi/',
     localCoords: '24.178863/120.646648',
     weatherNow: {
-      'time': '',
+      'time': '--:--',
       'temp': 0,
       'h_24r': 0,
       'humd': 0,
@@ -17,7 +17,7 @@ var app = new Vue({
       'wdsd': 0
     },
     aqiNow: {
-      'time': '',
+      'time': '--:--',
       'aqi': 0,
       'co': 0,
       'no': 0,
