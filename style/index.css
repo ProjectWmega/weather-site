@@ -9,6 +9,10 @@ html {
   margin-bottom: 1rem !important;
 }
 
+.container {
+  margin-top: 1em;
+}
+
 /* atom */
 
 * {
@@ -55,9 +59,9 @@ html {
 
 .input {
   border: transparent;
-  background-color: black; 
+  background-color: black;
   color: white;
-  font-size: 1.3em; 
+  font-size: 1.3em;
 }
 
 .button.is-primary {
@@ -236,7 +240,7 @@ span {
 .news-title {
   margin-top: 1em;
   font-weight: 900;
-  font-size: 1.6em;  
+  font-size: 1.6em;
 }
 
 .news-content {
