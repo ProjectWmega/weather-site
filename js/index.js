@@ -17,6 +17,7 @@ var app = new Vue({
       'wdsd': 0
     },
     aqiNow: {
+      'time': '',
       'aqi': 0,
       'co': 0,
       'no': 0,
@@ -48,19 +49,14 @@ var app = new Vue({
             break
         }
       }
-      if (wdirTextEng.length === 2) {
-        return wdirTextEng.split('').reverse().join('')
-      } else {
-        return wdirTextEng
-      }
+      return wdirTextEng.length === 2
+        ? wdirTextEng.split('').reverse().join('') : wdirTextEng
     },
     weatherNowTimeText: function () {
-      let releaseDate = new Date(this.weatherNow.time)
-
-      let formatedHour = this.fillTimeText(releaseDate.getHours())
-      let formatMinuts = this.fillTimeText(releaseDate.getMinutes())
-
-      return formatedHour + ':' + formatMinuts
+      return this.time2text(this.weatherNow.time)
+    },
+    aqiNowTimeText: function () {
+      return this.time2text(this.aqiNow.time)
     }
   },
   methods: {
@@ -75,6 +71,14 @@ var app = new Vue({
              dateToday.getMonth() + '月' +
              dateToday.getDate() + '日' +
              '(' + weekdayText[dateToday.getDay()] + ')'
+    },
+    time2text: function (time) {
+      let releaseDate = new Date(this.aqiNow.time)
+
+      let formatedHour = this.fillTimeText(releaseDate.getHours())
+      let formatMinuts = this.fillTimeText(releaseDate.getMinutes())
+
+      return formatedHour + ':' + formatMinuts
     },
     fillTimeText: function (time) {
       return String(time).length === 1 ? '0' + time : String(time)

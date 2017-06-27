@@ -162,7 +162,7 @@
                     </figure>
                     <p class="wind-text">{{ weatherNow.wdir }}<br>{{ wdirEng }}</p>
                   </div>
-                  <p class="wind-text">風力：5.4m/s(3級)<br>陣風：5.4m/s(3級)</p>
+                  <p class="wind-text">風力：{{ weatherNow.wdsd }}m/s(3級)<br>陣風：5.4m/s(3級)</p>
                 </div>
               </div>
 
@@ -170,11 +170,11 @@
                 <div class="observe-info">
                   <p>
                     <span class="icon"><i class="fa fa-sun-o"></i></span>
-                    80%
+                    {{ weatherNow.humd }}%
                   </p>
                   <p>
                     <span class="icon"><i class="fa fa-sun-o"></i></span>
-                    700毫米
+                    {{ weatherNow.h_24r }}毫米
                   </p>
                   <p>
                     <span class="icon"><i class="fa fa-sun-o"></i></span>
@@ -187,12 +187,12 @@
 
           <!-- 空氣品質 -->
           <div class="item">
-            <h4 class="title is-4">空氣品質 (XX:XX)</h4>
+            <h4 class="title is-4">空氣品質 ({{ aqiNowTimeText }})</h4>
             <div class="columns air-items">
               <div class="column is-one-quarter">
                 <div class="aqi-box">
                   <p class="aqi-text">AQI</p>
-                  <p class="aqi-value">30</p>
+                  <p class="aqi-value">{{ aqiNow.aqi }}</p>
                   <p class="aqi-quality">良好</p>
                 </div>
               </div>
@@ -297,6 +297,6 @@
       </div>
     </div>
   </div>
-  <script src="js/index.js"></script>  
+  <script src="js/index.js"></script>
 </body>
 </html>
