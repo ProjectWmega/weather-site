@@ -163,7 +163,6 @@ span {
   justify-content: space-around;
 }
 
-
 .aqi-box {
   display: flex;
   flex-direction: column;
@@ -194,11 +193,27 @@ span {
   color: white;
 }
 
-.pollutions-list {
+.pollution-view {
   display: flex;
   flex-direction: column;
+  margin: auto 0.2rem;
+  padding-top: 5px;
 
-  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.pollutant-view {
+  display: flex;
+}
+
+.pollutant-text {
+  margin-right: 20px;
+}
+
+.pollutant {
+  padding-left: 0.8em;
+  border-color: gray;
+  border-left: 1px solid;
 }
 
 .pollution-bar {
@@ -206,10 +221,23 @@ span {
   color: white;
 }
 
-.pollution-view {
-  margin: auto 0.2rem;
-  padding-top: 5px;
-  padding-left: 0;
+.pollutions-list {
+  display: flex;
+  
+  justify-content: space-between;
+}
+
+.polltuion-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.polltuion-text {
+  font-size: 1.1em;
+}
+
+.polltuion-value {
+  font-size: 0.8em;  
 }
 
 /* News */
