@@ -10,7 +10,16 @@ const AQI_MAX = {
   'co': 30.4
 }
 const AQI_BAR_WIDTH = 92
-const AQI_BAR_X = 3
+// const AQI_BAR_X = 3
+
+const AQI_LEVEL = {
+  GOOD: ['#82a050', '良好'],
+  NORMAL: ['#c0b158', '普通'],
+  ALLERGIES: ['#b9844c', '敏感族群不健康'],
+  ALL: ['#a4495d', '所有族群不健康'],
+  BAD: ['#784b86', '非常不健康'],
+  DANGER: ['#8a6455', '危害']
+}
 
 var app = new Vue({
   el: '#app',
@@ -74,6 +83,18 @@ var app = new Vue({
     },
     aqiNowTimeText: function () {
       return this.time2text(this.aqiNow.time)
+    },
+    aqiValueColor: function () {
+      const COLOR = 0
+
+      let level = this.aqiLevelCalc(this.aqiNow.aqi)
+      return AQI_LEVEL[level][COLOR]
+    },
+    aqiValueText: function () {
+      const TEXT = 1
+
+      let level = this.aqiLevelCalc(this.aqiNow.aqi)
+      return AQI_LEVEL[level][TEXT]
     }
   },
   methods: {
@@ -99,6 +120,21 @@ var app = new Vue({
     },
     fillTimeText: function (time) {
       return String(time).length === 1 ? '0' + time : String(time)
+    },
+    aqiLevelCalc: function (value) {
+      if (value < 51) {
+        return 'GOOD'
+      } else if (value >= 51 && value < 101) {
+        return 'NORMAL'
+      } else if (value >= 101 && value < 151) {
+        return 'ALLERGIES'
+      } else if (value >= 151 && value < 201) {
+        return 'ALL'
+      } else if (value >= 201 && value < 301) {
+        return 'BAD'
+      } else {
+        return 'DANGER'
+      }
     },
     aqiBarColor: function (value) {
       if (value < 6) {
