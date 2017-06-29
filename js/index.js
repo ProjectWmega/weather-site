@@ -37,7 +37,7 @@ var app = new Vue({
       'o3': 0,
       'co': 0
     },
-    aqiView: {
+    aqiPercent: {
       'pm25': 0,
       'so2': 0,
       'no2': 0,
@@ -101,7 +101,7 @@ var app = new Vue({
       return String(time).length === 1 ? '0' + time : String(time)
     },
     aqiBarColor: function (value) {
-      if (value <= 5) {
+      if (value < 6) {
         return '#43acdb'
       } else if (value >= 6 && value < 11) {
         return '#42b9bc'
@@ -141,7 +141,7 @@ var app = new Vue({
           if ((key !== 'time') || (key !== 'aqi') || (key !== 'pollutant')) {
             vm.aqiNow[key] = aqiNowJson.data['values'][key]
             let apiPercent = aqiNowJson.data['values'][key] / AQI_MAX[key]
-            vm.aqiView[key] = apiPercent * AQI_BAR_WIDTH
+            vm.aqiPercent[key] = apiPercent * AQI_BAR_WIDTH
           } else {
             vm.aqiNow[key] = aqiNowJson.data['values'][key]
           }

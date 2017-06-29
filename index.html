@@ -210,7 +210,7 @@
                     <p class="polltuion-text">PM2.5</p>
                     <svg height="10" width="100">
                       <line x1="3" y1="5" x2="95" y2="5" stroke="#ccc" stroke-linecap="round" stroke-width="5" />
-                      <line x1="3" y1="5" :x2="aqiView.pm25 + 3" y2="5" :stroke="aqiBarColor(aqiNow.pm25)" stroke-linecap="round" stroke-width="5" />
+                      <line x1="3" y1="5" :x2="aqiPercent.pm25 + 3" y2="5" :stroke="aqiBarColor(aqiPercent.pm25)" stroke-linecap="round" stroke-width="5" />
                     </svg>
                     <p class="polltuion-value">{{ aqiNow.pm25 }}μg/m3</p>
                   </div>
@@ -218,7 +218,7 @@
                     <p class="polltuion-text">SO<sub>2</sub></p>
                     <svg height="10" width="100">
                       <line x1="3" y1="5" x2="95" y2="5" stroke="#ccc" stroke-linecap="round" stroke-width="5" />
-                      <line x1="3" y1="5" :x2="aqiView.so2 + 3" y2="5" :stroke="aqiBarColor(aqiNow.so2)" stroke-linecap="round" stroke-width="5" />
+                      <line x1="3" y1="5" :x2="aqiPercent.so2 + 3" y2="5" :stroke="aqiBarColor(aqiPercent.so2)" stroke-linecap="round" stroke-width="5" />
                     </svg>
                     <p class="polltuion-value">{{ aqiNow.so2 }}ppb</p>
                   </div>
@@ -226,7 +226,7 @@
                     <p class="polltuion-text">NO<sub>2</sub></p>
                     <svg height="10" width="100">
                       <line x1="3" y1="5" x2="95" y2="5" stroke="#ccc" stroke-linecap="round" stroke-width="5" />
-                      <line x1="3" y1="5" :x2="aqiView.no2 + 3" y2="5" :stroke="aqiBarColor(aqiNow.no2)" stroke-linecap="round" stroke-width="5" />
+                      <line x1="3" y1="5" :x2="aqiPercent.no2 + 3" y2="5" :stroke="aqiBarColor(aqiPercent.no2)" stroke-linecap="round" stroke-width="5" />
                     </svg>
                     <p class="polltuion-value">{{ aqiNow.no2 }}ppb</p>
                   </div>
@@ -236,7 +236,7 @@
                     <p class="polltuion-text">PM10</p>
                     <svg height="10" width="100">
                       <line x1="3" y1="5" x2="95" y2="5" stroke="#ccc" stroke-linecap="round" stroke-width="5" />
-                      <line x1="3" y1="5" :x2="aqiView.pm10 + 3" y2="5" :stroke="aqiBarColor(aqiNow.pm10)" stroke-linecap="round" stroke-width="5" />
+                      <line x1="3" y1="5" :x2="aqiPercent.pm10 + 3" y2="5" :stroke="aqiBarColor(aqiPercent.pm10)" stroke-linecap="round" stroke-width="5" />
                     </svg>
                     <p class="polltuion-value">{{ aqiNow.pm10 }}μg/m3</p>
                   </div>
@@ -244,7 +244,7 @@
                     <p class="polltuion-text">O<sub>3</sub></p>
                     <svg height="10" width="100">
                       <line x1="3" y1="5" x2="95" y2="5" stroke="#ccc" stroke-linecap="round" stroke-width="5" />
-                      <line x1="3" y1="5" :x2="aqiView.o3 + 3" y2="5" :stroke="aqiBarColor(aqiNow.o3)" stroke-linecap="round" stroke-width="5" />
+                      <line x1="3" y1="5" :x2="aqiPercent.o3 + 3" y2="5" :stroke="aqiBarColor(aqiPercent.o3)" stroke-linecap="round" stroke-width="5" />
                     </svg>
                     <p class="polltuion-value">{{ aqiNow.o3 }}ppb</p>
                   </div>
@@ -252,7 +252,7 @@
                     <p class="polltuion-text">CO</p>
                     <svg height="10" width="100">
                       <line x1="3" y1="5" x2="95" y2="5" stroke="#ccc" stroke-linecap="round" stroke-width="5" />
-                      <line x1="3" y1="5" :x2="aqiView.co + 3" y2="5" :stroke="aqiBarColor(aqiView.co)" stroke-linecap="round" stroke-width="5" />
+                      <line x1="3" y1="5" :x2="aqiPercent.co + 3" y2="5" :stroke="aqiBarColor(aqiPercent.co)" stroke-linecap="round" stroke-width="5" />
                     </svg>
                     <p class="polltuion-value">{{ aqiNow.co }}ppm</p>
                   </div>
