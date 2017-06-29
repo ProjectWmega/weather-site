@@ -1,6 +1,16 @@
 Vue.prototype.$http = axios
 
 const SERVER_ADDRESS = 'http://140.134.26.64:1234/wmega/webapi/'
+const AQI_MAX = {
+  'pm25': 250.4,
+  'so2': 604,
+  'no2': 1249,
+  'pm10': 424,
+  'o3': 404,
+  'co': 30.4
+}
+const AQI_BAR_WIDTH = 92
+const AQI_BAR_X = 3
 
 var app = new Vue({
   el: '#app',
@@ -18,15 +28,22 @@ var app = new Vue({
     },
     aqiNow: {
       'time': '--:--',
+      'pollutant': '',
       'aqi': 0,
-      'co': 0,
-      'no': 0,
-      'no2': 0,
-      'nox': 0,
-      'o3': 0,
-      'pm10': 0,
       'pm25': 0,
-      'so2': 0
+      'so2': 0,
+      'no2': 0,
+      'pm10': 0,
+      'o3': 0,
+      'co': 0
+    },
+    aqiView: {
+      'pm25': 0,
+      'so2': 0,
+      'no2': 0,
+      'pm10': 0,
+      'o3': 0,
+      'co': 0
     }
   },
   computed: {
@@ -82,6 +99,29 @@ var app = new Vue({
     },
     fillTimeText: function (time) {
       return String(time).length === 1 ? '0' + time : String(time)
+    },
+    aqiBarColor: function (value) {
+      if (value <= 5) {
+        return '#43acdb'
+      } else if (value >= 6 && value < 11) {
+        return '#42b9bc'
+      } else if (value >= 11 && value < 16) {
+        return '#a1af56'
+      } else if (value >= 16 && value < 21) {
+        return '#c0b158'
+      } else if (value >= 21 && value < 26) {
+        return '#bc9b51'
+      } else if (value >= 26 && value < 31) {
+        return '#b9844c'
+      } else if (value >= 31 && value < 41) {
+        return '#b7624e'
+      } else if (value >= 41 && value < 51) {
+        return '#b15456'
+      } else if (value >= 51 && value < 61) {
+        return '#a0485d'
+      } else {
+        return '#857197'
+      }
     }
   },
   created () {
@@ -98,7 +138,13 @@ var app = new Vue({
 
         // AQI JSON Processs
         for (let key in vm.aqiNow) {
-          vm.aqiNow[key] = aqiNowJson.data['values'][key]
+          if ((key !== 'time') || (key !== 'aqi') || (key !== 'pollutant')) {
+            vm.aqiNow[key] = aqiNowJson.data['values'][key]
+            let apiPercent = aqiNowJson.data['values'][key] / AQI_MAX[key]
+            vm.aqiView[key] = apiPercent * AQI_BAR_WIDTH
+          } else {
+            vm.aqiNow[key] = aqiNowJson.data['values'][key]
+          }
         }
       }))
       .catch(function (error) {
