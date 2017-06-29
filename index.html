@@ -193,7 +193,7 @@
                 <div class="aqi-box">
                   <p class="aqi-text">AQI</p>
                   <p class="aqi-value">{{ aqiNow.aqi }}</p>
-                  <p class="aqi-quality">{{ aqiValueText }}</p>
+                  <p class="aqi-quality" :style="aqiValueColor">{{ aqiValueText }}</p>
                 </div>
               </div>
 

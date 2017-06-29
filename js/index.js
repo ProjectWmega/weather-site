@@ -88,7 +88,7 @@ var app = new Vue({
       const COLOR = 0
 
       let level = this.aqiLevelCalc(this.aqiNow.aqi)
-      return AQI_LEVEL[level][COLOR]
+      return 'background-color:' + AQI_LEVEL[level][COLOR] + ';'
     },
     aqiValueText: function () {
       const TEXT = 1
