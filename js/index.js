@@ -95,6 +95,16 @@ var app = new Vue({
 
       let level = this.aqiLevelCalc(this.aqiNow.aqi)
       return AQI_LEVEL[level][TEXT]
+    },
+    bodyTemp: function () {
+      let t = this.weatherNow.temp
+      let rh = this.weatherNow.humd
+      let v = this.weatherNow.wdsd
+
+      return (1.04 * t +
+        0.2 * ((rh / 100) * 6.105 * Math.exp((17.27 * t) / (237.7 + t))) -
+        0.65 * v -
+        2.7).toFixed(1)
     }
   },
   methods: {
