@@ -116,7 +116,7 @@ var app = new Vue({
       ]
 
       return dateToday.getFullYear() + '年' +
-             dateToday.getMonth() + '月' +
+             (dateToday.getMonth() + 1) + '月' +
              dateToday.getDate() + '日' +
              '(' + weekdayText[dateToday.getDay()] + ')'
     },
